@@ -12,7 +12,7 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const moment = require('moment');
 const connectDb = require('./config/db');
-
+const authRoutes = require('./routes/authRoutes');
 const app = express();
 
 
@@ -50,5 +50,6 @@ app.get('/', (req, res) => {
         date: moment()
     });
 });
+app.use('/auth', authRoutes);
 
 module.exports = app;

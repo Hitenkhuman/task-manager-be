@@ -1,3 +1,15 @@
 {
-    
+	"SUCCESS": "Success",
+	"FAILURE": "Failure",
+	"INTERNAL_SERVER_ERROR": "Internal server error.",
+	"SIGNUP_SUCCESS": "User registered successfully.",
+	"LOGIN_SUCCESS": "User logged in successfully.",
+	"UNAUTHORIZED": "Unauthorized access.",
+	"INVALID_CREDENTIALS": "Invalid credentials. Please try again with valid credentials.",
+	"USER_ALREADY_EXISTS": "User already exists with this email. Please try with another email.",
+	"INVALID_EMAIL": "Invalid email. Please try with valid email.",
+	"INVALID_PASSWORD": "Invalid password length.",
+	"NAME_REQUIRED": "First name and last name is required.",
+	"REQUIRED": "%s is required.",
+	"PASSWORD_MISMATCH": "Password and confirm password should be same."
 }
