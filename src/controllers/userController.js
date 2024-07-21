@@ -1,5 +1,6 @@
 const userService = require('../services/userService');
 const handleResponse = require('../utils/handleResponse');
+const httpsStatus = require('../utils/httpsStatus');
 const loginValidator = require('../validators/loginValidator');
 const signupValidator = require('../validators/signUpValidator');
 
@@ -9,7 +10,7 @@ const signup = async (req, res) => {
     try {
         signupValidator(req.body, res.__);
         const user = await userService.signup(email, password, firstName, lastName, res.__);
-        handleResponse(res, null, user, 201, res.__('SIGNUP_SUCCESS'));
+        handleResponse(res, null, user, httpsStatus.CREATED, res.__('SIGNUP_SUCCESS'));
     } catch (error) {
         handleResponse(res, error);
     }
@@ -21,7 +22,7 @@ const login = async (req, res) => {
     try {
         loginValidator(req.body, res.__);
         const user = await userService.login(email, password, res.__);
-        handleResponse(res, null, user, 200, res.__('LOGIN_SUCCESS'));
+        handleResponse(res, null, user, httpsStatus.OK, res.__('LOGIN_SUCCESS'));
     } catch (error) {
         handleResponse(res, error);
     }

@@ -13,6 +13,7 @@ const helmet = require('helmet');
 const moment = require('moment');
 const connectDb = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const taksRoutes = require('./routes/taskRoutes');
 const app = express();
 
 
@@ -51,5 +52,6 @@ app.get('/', (req, res) => {
     });
 });
 app.use('/auth', authRoutes);
+app.use('/task', taksRoutes)
 
 module.exports = app;

@@ -4,12 +4,19 @@
 	"INTERNAL_SERVER_ERROR": "Internal server error.",
 	"SIGNUP_SUCCESS": "User registered successfully.",
 	"LOGIN_SUCCESS": "User logged in successfully.",
-	"UNAUTHORIZED": "Unauthorized access.",
+	"UNAUTHORIZED": "You are not authorized to access this resource.",
 	"INVALID_CREDENTIALS": "Invalid credentials. Please try again with valid credentials.",
 	"USER_ALREADY_EXISTS": "User already exists with this email. Please try with another email.",
 	"INVALID_EMAIL": "Invalid email. Please try with valid email.",
 	"INVALID_PASSWORD": "Invalid password length.",
 	"NAME_REQUIRED": "First name and last name is required.",
 	"REQUIRED": "%s is required.",
-	"PASSWORD_MISMATCH": "Password and confirm password should be same."
+	"INVALID": "%s is invalid.",
+	"PASSWORD_MISMATCH": "Password and confirm password should be same.",
+	"TASK_NOT_FOUND": "Task not found with given id.",
+	"TASK_ADD_SUCCESS": "Task added successfully.",
+	"TASK_UPDATE_SUCCESS": "Task updated successfully.",
+	"TASK_STATUS_CHANGE_SUCCESS": "Task status changed successfully.",
+	"TASK_LIST_SUCCESS": "Task list fetched successfully.",
+	"TASK_DELETE_SUCCESS": "Task deleted successfully."
 }
