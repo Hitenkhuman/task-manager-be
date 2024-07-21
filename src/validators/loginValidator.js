@@ -14,14 +14,14 @@ const loginValidator = (payload, locale) => {
             message: locale("INVALID_EMAIL")
         }
     }
-    
+
     if (!validator.validateRequiredField(payload.password)) {
         throw {
             status: httpsStatus.BAD_REQUEST,
             message: locale("REQUIRED", "Password")
         }
     }
-    
+
     if (!validator.validatePassword(payload.password)) {
         throw {
             status: httpsStatus.BAD_REQUEST,
@@ -30,4 +30,32 @@ const loginValidator = (payload, locale) => {
     }
 }
 
-module.exports = loginValidator;
+const googleAuthValidator = (payload, locale) => {
+    if (!validator.validateRequiredField(payload.email)) {
+        throw {
+            status: httpsStatus.BAD_REQUEST,
+            message: locale("REQUIRED", "Email")
+        }
+    }
+    if (!validator.validateEmail(payload.email)) {
+        throw {
+            status: httpsStatus.BAD_REQUEST,
+            message: locale("INVALID_EMAIL")
+        }
+    }
+    if (!validator.validateRequiredField(payload.clientId)) {
+        throw {
+            status: httpsStatus.BAD_REQUEST,
+            message: locale("REQUIRED", "ClientId")
+        }
+    }
+
+    if (!validator.validateRequiredField(payload.token)) {
+        throw {
+            status: httpsStatus.BAD_REQUEST,
+            message: locale("REQUIRED", "token")
+        }
+    }
+}
+
+module.exports = { loginValidator, googleAuthValidator };

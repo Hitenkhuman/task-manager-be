@@ -1,7 +1,7 @@
 const userService = require('../services/userService');
 const handleResponse = require('../utils/handleResponse');
 const httpsStatus = require('../utils/httpsStatus');
-const loginValidator = require('../validators/loginValidator');
+const {loginValidator, googleAuthValidator} = require('../validators/loginValidator');
 const signupValidator = require('../validators/signUpValidator');
 
 const signup = async (req, res) => {
@@ -28,4 +28,14 @@ const login = async (req, res) => {
     }
 };
 
-module.exports = { signup, login };
+const googleAuth = async (req, res) => {
+    try {
+        googleAuthValidator(req.body, res.__);
+        const user = await userService.googleAuth(req.body);
+        handleResponse(res, null, user, httpsStatus.OK, res.__('LOGIN_SUCCESS'));
+    } catch (error) {
+        handleResponse(res, error);
+    }
+}
+
+module.exports = { signup, login, googleAuth };

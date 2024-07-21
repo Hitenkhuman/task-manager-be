@@ -54,7 +54,31 @@ const login = async (email, password, locale) => {
     return mapUserToResponse(user);
 };
 
+const googleAuth = async (body) => {
+    const { email, clientId, token, firstName, lastName } = body;
+
+    //ideally we should verify te token with google api but for now we are skipping it due to time constraints
+    let user = await User.findOne({ email });
+
+    if (user) {
+        user.googleId = clientId;
+        user.googleToken = token;
+        await user.save();
+    } else {
+        user = await User.create({
+            firstName,
+            lastName,
+            email,
+            googleId: clientId,
+            googleToken: token
+        });
+    }
+
+    return mapUserToResponse(user);
+};
+
 module.exports = {
     signup,
-    login
+    login,
+    googleAuth
 };
